@@ -9,4 +9,6 @@
     <string name="please_enter_your_email">please enter your email</string>
     <string name="please_enter_valid_email">please enter valid email</string>
     <string name="please_enter_your_password">please enter your password</string>
+    <string name="advices">Advices</string>
+    <string name="avoid">Avoid</string>
 </resources>

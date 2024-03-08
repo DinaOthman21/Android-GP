@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("kotlin-kapt")
+    id ("kotlin-parcelize")
 }
 
 android {
@@ -72,5 +74,12 @@ dependencies {
 
     // navigation
     implementation("androidx.navigation:navigation-compose:2.7.7")
+
+
+    // coil for loading image
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
+    // Icons
+    implementation("androidx.compose.material:material-icons-extended:1.6.2")
 
 }

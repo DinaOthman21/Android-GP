@@ -1,5 +1,10 @@
 package com.example.androidproject.presentation.components
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -10,7 +15,10 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.androidproject.R
 
@@ -54,3 +62,60 @@ fun TextLabel(
     )
 
 }
+
+
+
+@Composable
+fun TextTitle(
+    text:String,
+    modifier: Modifier = Modifier,
+    textColor:Color = MaterialTheme.colorScheme.primary,
+    textFont: Int = 18,
+    textFontWight: FontWeight = FontWeight.Normal,
+    maxLines: Int = 1,
+    textLetterSpacing: Double = 0.5,
+) {
+    Text(
+        text = text,
+        modifier = modifier,
+        fontSize = textFont.sp,
+        fontWeight = textFontWight,
+        color = textColor,
+        letterSpacing = textLetterSpacing.sp,
+        overflow = TextOverflow.Ellipsis,
+        textAlign = TextAlign.Justify,
+        maxLines = maxLines,
+    )
+
+}
+
+@Composable
+fun TextWithBoldUnderLine(
+    text:String,
+    modifier: Modifier = Modifier,
+    textColor:Color = MaterialTheme.colorScheme.primary,
+    textFont: Int = 22,
+    textLetterSpacing: Double = 1.5,
+    lineColor: Color = Color.Black,
+
+    ) {
+    Column {
+        Text(
+            text = text,
+            modifier = modifier.padding(horizontal = 4.dp),
+            fontSize = textFont.sp,
+            color = textColor,
+            fontWeight = FontWeight.Bold,
+            letterSpacing = textLetterSpacing.sp
+
+        )
+        Divider(
+            modifier = Modifier
+                .padding(4.dp)
+                .height(4.dp)
+                .width(36.dp),
+            color = lineColor
+        )
+    }
+}
+

@@ -7,7 +7,9 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.compose.runtime.State
 import androidx.compose.runtime.derivedStateOf
+import androidx.navigation.NavHostController
 import com.example.androidproject.R
+import com.example.androidproject.presentation.navigation.Screens
 
 class LoginScreenViewModel :ViewModel() {
     private var _state by mutableStateOf(
@@ -52,7 +54,7 @@ class LoginScreenViewModel :ViewModel() {
     // user click on button to login
     // make check in data and then call login endpoint
     // to get token
-    fun onLoginClick(context:Context){
+    fun onLoginClick(context: Context, navController: NavHostController){
         if (_state.email.isEmpty()){
             _state=_state.copy(
                 isEmailError = true,
@@ -78,12 +80,11 @@ class LoginScreenViewModel :ViewModel() {
         if (_state.password.isNotEmpty() && _state.email.isNotEmpty() && isValidEmail(_state.email)){
 
             // save token as example to save user if user make Remember me true
-//            tokenManager.saveToken("token")
-//            navController.navigate(Screens.Home.route){
-//                popUpTo(Screens.Login.route) {
-//                    inclusive = true
-//                }
-//            }
+            navController.navigate(Screens.Home.route){
+                popUpTo(Screens.Login.route) {
+                    inclusive = true
+                }
+            }
         }
 
     }
