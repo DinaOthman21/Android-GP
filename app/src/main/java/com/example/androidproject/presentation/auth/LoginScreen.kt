@@ -12,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -26,15 +27,15 @@ import com.example.androidproject.presentation.components.CheckboxWithName
 import com.example.androidproject.presentation.components.EmailEditText
 import com.example.androidproject.presentation.components.PasswordEditText
 import com.example.androidproject.presentation.components.TextLabel
+import kotlin.math.log
 
-@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun LoginScreen() {
+fun LoginScreen(loginViewModel: LoginScreenViewModel) {
+    val context = LocalContext.current
+    val state = loginViewModel.state.value
+
     Column (
-        modifier = Modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
-            .padding(12.dp)
+        modifier = Modifier.padding(12.dp)
     ){
         AppNameWithHiatusFont(modifier = Modifier
             .padding(
@@ -49,10 +50,10 @@ fun LoginScreen() {
             textFontWight = FontWeight.Bold
         )
         EmailEditText(
-            email = "",
-            isErrorEmail = false,
-            emailErrorMessage = "",
-            onValueChange = {}
+            email = state.email,
+            isErrorEmail = state.isEmailError,
+            emailErrorMessage = state.errorMessageEmail,
+            onValueChange = {newEmail-> loginViewModel.onEmailChange(newEmail)}
         )
         TextLabel(
             text = stringResource(R.string.password),
@@ -61,20 +62,22 @@ fun LoginScreen() {
             textFontWight = FontWeight.Bold
         )
         PasswordEditText(
-            password = "",
-            isErrorPassword = false,
-            passwordErrorMessage = "",
-            showPassword = false,
-            onValueChange = {}
-        ) {}
+            password = state.password,
+            isErrorPassword = state.isPasswordError,
+            passwordErrorMessage = state.errorMessagePassword,
+            showPassword = state.showPassword,
+            onValueChange = {newPassword->loginViewModel.onPasswordChange(newPassword)}
+        ) {
+            loginViewModel.onIconShowPassword()
+        }
 
         Row (
             verticalAlignment = Alignment.CenterVertically
         ){
             CheckboxWithName(
                 checkBoxText = stringResource(R.string.remember_me),
-                checkedState = false,
-                onToggleClick = {}
+                checkedState = state.checkBoxState,
+                onToggleClick = {loginViewModel.onRememberMeClick()}
             )
             Spacer(modifier = Modifier.weight(1f))
             Text(
@@ -90,7 +93,6 @@ fun LoginScreen() {
 
                 }
             )
-
         }
 
         ButtonClickOn(
@@ -98,7 +100,7 @@ fun LoginScreen() {
             paddingValue = 30
         ) {
             // on login click
-            // loginViewModel.onLoginClick(navController,context)
+            loginViewModel.onLoginClick(context)
         }
 
     }

@@ -7,4 +7,7 @@
     <string name="password">Password</string>
     <string name="remember_me">Remember me</string>
     <string name="login">Login</string>
+    <string name="please_enter_your_email">please enter your email</string>
+    <string name="please_enter_valid_email">please enter valid email</string>
+    <string name="please_enter_your_password">please enter your password</string>
 </resources>
