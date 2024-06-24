@@ -1,4 +1,4 @@
-package com.example.androidproject.presentation.homeScreens
+package com.example.androidproject.presentation.homeScreens.bottomNavigation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

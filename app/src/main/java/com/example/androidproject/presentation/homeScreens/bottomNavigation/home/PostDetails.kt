@@ -1,4 +1,4 @@
-package com.example.androidproject.presentation.homeScreens
+package com.example.androidproject.presentation.homeScreens.bottomNavigation.home
 
 
 import androidx.compose.foundation.layout.Arrangement
@@ -13,8 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.androidproject.data.remote.dto.Post
 import com.example.androidproject.presentation.components.BackIcon
-import com.example.androidproject.presentation.components.Post
 import com.example.androidproject.presentation.components.TextLabel
 import com.example.androidproject.presentation.components.TextTitle
 import com.example.androidproject.presentation.components.ViewImage

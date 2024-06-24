@@ -4,11 +4,11 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.androidproject.data.remote.dto.Post
 import com.example.androidproject.presentation.auth.LoginScreen
 import com.example.androidproject.presentation.auth.LoginScreenViewModel
-import com.example.androidproject.presentation.components.Post
-import com.example.androidproject.presentation.homeScreens.HomeScreen
-import com.example.androidproject.presentation.homeScreens.PostDetails
+import com.example.androidproject.presentation.homeScreens.bottomNavigation.home.HomeScreen
+import com.example.androidproject.presentation.homeScreens.bottomNavigation.home.PostDetails
 
 
 @Composable
