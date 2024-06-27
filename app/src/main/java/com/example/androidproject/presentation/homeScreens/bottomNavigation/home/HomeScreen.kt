@@ -85,13 +85,15 @@ import com.example.androidproject.presentation.components.TextWithBoldUnderLine
 import com.example.androidproject.presentation.components.VerticalAvoidCard
 import com.example.androidproject.presentation.components.posts
 import com.example.androidproject.presentation.navigation.Screens
-import com.example.androidproject.presentation.homeScreens.AppTopBar
+import com.example.androidproject.presentation.homeScreens.TopAppBar
+
 
 @Composable
 fun HomeScreen(navController: NavHostController) {
+
     Column {
-        // Include the top app bar
-        AppTopBar(
+
+        TopAppBar(
             onProfileClick = {
                 // Navigate to profile screen or perform profile action
                 // Example:
@@ -139,5 +141,11 @@ fun HomeScreen(navController: NavHostController) {
                 }
             }
         }
+
+
     }
+
+
+
+
 }

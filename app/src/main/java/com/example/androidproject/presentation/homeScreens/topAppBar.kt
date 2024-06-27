@@ -91,13 +91,13 @@ import com.example.androidproject.ui.theme.TextLight
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppTopBar(
+fun TopAppBar(
     onProfileClick: () -> Unit,
     onChatClick: () -> Unit,
-    showTopAppBar: Boolean = true // Add a parameter to control visibility
+    showTopAppBar: Boolean = true
 ) {
     if (showTopAppBar) {
-        val iconSize = 24.dp
+        val iconSize = 25.dp
 
         TopAppBar(
             modifier = Modifier
@@ -134,9 +134,9 @@ fun AppTopBar(
 @Preview(showBackground = true)
 @Composable
 fun PreviewDetailsTopBar() {
-    AppTopBar(
+    TopAppBar(
         onProfileClick = {},
         onChatClick = {},
-        showTopAppBar = true // Ensure it's shown in preview
+        showTopAppBar = true
     )
 }
