@@ -8,13 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
-
-
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.FloatingActionButton
-import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -39,7 +33,6 @@ fun BottomAppBar(
     items: List<BottomNavigationItem>,
     selectedItem: Int,
     onItemClick: (Int) -> Unit,
-    onFabClick: () -> Unit
 ) {
     Box(modifier = Modifier.fillMaxWidth()) {
         NavigationBar(
@@ -50,9 +43,6 @@ fun BottomAppBar(
             tonalElevation = 10.dp
         ) {
             items.forEachIndexed { index, item ->
-                if (index == 2) {
-                    Spacer(Modifier.weight(1f, true))
-                } else {
                     NavigationBarItem(
                         selected = index == selectedItem,
                         onClick = { onItemClick(index) },
@@ -80,26 +70,9 @@ fun BottomAppBar(
                             indicatorColor = MaterialTheme.colorScheme.background
                         ),
                     )
-                }
             }
         }
 
-        FloatingActionButton(
-            onClick = onFabClick,
-            modifier = Modifier
-                .align(Alignment.Center)
-                .offset(y = (-30).dp),
-            shape = CircleShape,
-            containerColor = MaterialTheme.colorScheme.onPrimary,
-            contentColor =  colorResource(id = R.color.white),
-            elevation = FloatingActionButtonDefaults.elevation(8.dp)
-        ) {
-            Icon(
-                painter = painterResource(id = R.drawable.medicaltest),
-                contentDescription = null,
-                modifier = Modifier.size(25.dp)
-            )
-        }
     }
 }
 
@@ -115,7 +88,6 @@ fun BottomAppBarPreview() {
     val items = listOf(
         BottomNavigationItem(icon = R.drawable.home, text = "Home"),
         BottomNavigationItem(icon = R.drawable.prediction, text = "Prediction"),
-        BottomNavigationItem(icon = R.drawable.medicaltest, text = ""),
         BottomNavigationItem(icon = R.drawable.medicine, text = "Drug"),
         BottomNavigationItem(icon = R.drawable.calculator, text = "Calculator")
     )
@@ -125,7 +97,6 @@ fun BottomAppBarPreview() {
             items = items,
             selectedItem = 0,
             onItemClick = {},
-            onFabClick = {}
         )
     }
 

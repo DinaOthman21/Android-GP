@@ -11,4 +11,8 @@
     <string name="please_enter_your_password">please enter your password</string>
     <string name="advices">Advices</string>
     <string name="avoid">Avoid</string>
+    <string name="home">Home</string>
+    <string name="prediction">Prediction</string>
+    <string name="medicine">Medicine</string>
+    <string name="calculator">Calculator</string>
 </resources>

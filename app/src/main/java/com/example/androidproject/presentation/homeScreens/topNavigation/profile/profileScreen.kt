@@ -1,4 +1,4 @@
-package com.example.androidproject.presentation.homeScreens.bottomNavigation.prediction
+package com.example.androidproject.presentation.homeScreens.topNavigation.profile
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,7 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun Prediction(){
+fun Profile(){
     Box(modifier = Modifier.fillMaxSize()){
         Column(modifier=Modifier.fillMaxSize().align(Alignment.Center),
             verticalArrangement = Arrangement.Center,
@@ -28,5 +28,5 @@ fun Prediction(){
 @Preview(showBackground = true)
 @Composable
 fun predictionPreview() {
-    Prediction()
+    Profile()
 }
