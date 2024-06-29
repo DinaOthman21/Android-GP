@@ -84,6 +84,8 @@ import com.example.androidproject.presentation.components.HorizontalView
 import com.example.androidproject.presentation.components.TextWithBoldUnderLine
 import com.example.androidproject.presentation.components.VerticalAvoidCard
 import com.example.androidproject.presentation.components.posts
+import com.example.androidproject.presentation.homeScreens.BottomAppBar
+import com.example.androidproject.presentation.homeScreens.BottomNavigationItem
 import com.example.androidproject.presentation.navigation.Screens
 import com.example.androidproject.presentation.homeScreens.TopAppBar
 
@@ -91,61 +93,75 @@ import com.example.androidproject.presentation.homeScreens.TopAppBar
 @Composable
 fun HomeScreen(navController: NavHostController) {
 
-    Column {
+    val items= listOf(
+        BottomNavigationItem(icon = R.drawable.home , text = "Home") ,
+        BottomNavigationItem(icon = R.drawable.prediction, text = "Prediction"),
+        BottomNavigationItem(icon = R.drawable.medicine, text = "Drug"),
+        BottomNavigationItem(icon = R.drawable.calculator, text = "Calculator")
+    )
 
-        TopAppBar(
-            onProfileClick = {
-                // Navigate to profile screen or perform profile action
-                // Example:
-                //navController.navigate(Screens.Profile.route)
-            },
-            onChatClick = {
-                // Navigate to chat screen or perform chat action
-                // Example:
-               // navController.navigate(Screens.Chat.route)
-            }
-        )
+    //var selectedItem = 0
 
-        LazyColumn (
-            modifier = Modifier.padding(top = 10.dp)
-        ){
-            item {
-                Column {
-                    // make title for "Advices" with small bold underline
-                    TextWithBoldUnderLine(
-                        text = stringResource(R.string.advices),
-                        lineColor = MaterialTheme.colorScheme.onSecondary
-                    )
+        Column {
 
-                    HorizontalView {
+            TopAppBar(
+                onProfileClick = {
+                    // Navigate to profile screen or perform profile action
+                    //navController.navigate(Screens.Profile.route)
+                },
+                onChatClick = {
+                    // Navigate to chat screen or perform chat action
+                    // navController.navigate(Screens.Chat.route)
+                }
+            )
+
+            LazyColumn(
+                modifier = Modifier.padding(top = 10.dp,bottom = 67.dp)
+            ) {
+                item {
+                    Column {
+                        // make title for "Advices" with small bold underline
+                        TextWithBoldUnderLine(
+                            text = stringResource(R.string.advices),
+                            lineColor = MaterialTheme.colorScheme.onSecondary
+                        )
+
+                        HorizontalView {
+                            // on post click
+                            // on user click on post to show its details
+                            navController.currentBackStackEntry?.savedStateHandle?.set("post", it)
+                            navController.navigate(Screens.PostDetails.route)
+                        }
+
+                        // also make title for "Avoid" with small bold underline
+                        TextWithBoldUnderLine(
+                            text = stringResource(R.string.avoid),
+                            lineColor = MaterialTheme.colorScheme.onSecondary
+                        )
+                    }
+                }
+
+                items(posts) { post ->
+                    VerticalAvoidCard(post = post) {
                         // on post click
                         // on user click on post to show its details
-                        navController.currentBackStackEntry?.savedStateHandle?.set("post", it)
+                        navController.currentBackStackEntry?.savedStateHandle?.set("post", post)
                         navController.navigate(Screens.PostDetails.route)
                     }
-
-                    // also make title for "Avoid" with small bold underline
-                    TextWithBoldUnderLine(
-                        text = stringResource(R.string.avoid),
-                        lineColor = MaterialTheme.colorScheme.onSecondary
-                    )
                 }
             }
 
-            items(posts) { post ->
-                VerticalAvoidCard(post = post) {
-                    // on post click
-                    // on user click on post to show its details
-                    navController.currentBackStackEntry?.savedStateHandle?.set("post", post)
-                    navController.navigate(Screens.PostDetails.route)
-                }
-            }
+
         }
-
-
-    }
-
-
+    var selectedItem =0
+   BottomAppBar(
+            items = items,
+            selectedItem = selectedItem,
+            onItemClick = { index ->
+                selectedItem = index
+                // Handle bottom navigation item click
+            }
+        )
 
 
 }

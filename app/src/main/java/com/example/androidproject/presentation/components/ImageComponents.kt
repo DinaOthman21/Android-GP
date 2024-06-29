@@ -1,5 +1,6 @@
 package com.example.androidproject.presentation.components
 
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -48,4 +49,5 @@ fun ViewImage(
     )
 
 }
+
 

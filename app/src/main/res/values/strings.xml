@@ -15,4 +15,22 @@
     <string name="prediction">Prediction</string>
     <string name="medicine">Medicine</string>
     <string name="calculator">Calculator</string>
+    <string name="ar">Arabic</string>
+    <string name="en">English</string>
+    <string name="language">Language</string>
+    <string name="general_settings">General Settings</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="about">About</string>
+    <string name="terms_conditions"> terms and conditions</string>
+    <string name="rate_this_app"> rate this app</string>
+    <string name="share_this_app"> share this app</string>
+    <string name="license"> License</string>
+    <string name="account_settings">Account Settings</string>
+    <string name="log_out">log out</string>
+    <string name="change_language">change language</string>
+
+
+
+
+
 </resources>
