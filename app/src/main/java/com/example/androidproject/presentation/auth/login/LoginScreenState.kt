@@ -1,4 +1,4 @@
-package com.example.androidproject.presentation.auth
+package com.example.androidproject.presentation.auth.login
 
 
 

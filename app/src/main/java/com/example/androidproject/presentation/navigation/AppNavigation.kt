@@ -5,14 +5,18 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.androidproject.data.remote.dto.Post
-import com.example.androidproject.presentation.auth.LoginScreen
-import com.example.androidproject.presentation.auth.LoginScreenViewModel
+import com.example.androidproject.presentation.auth.login.LoginScreen
+import com.example.androidproject.presentation.auth.login.LoginScreenViewModel
 import com.example.androidproject.presentation.homeScreens.bottomNavigation.home.HomeScreen
 import com.example.androidproject.presentation.homeScreens.bottomNavigation.home.PostDetails
 
 
 @Composable
-fun AppNavigation(loginViewModel: LoginScreenViewModel) {
+fun AppNavigation(
+    loginViewModel: LoginScreenViewModel,
+   // SignUpScreenViewModel : SignUpScreenViewModel
+    )
+{
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screens.Login.route){
         composable(route = Screens.Login.route){
@@ -34,6 +38,13 @@ fun AppNavigation(loginViewModel: LoginScreenViewModel) {
                 PostDetails(post = it,navController = navController)
             }
         }
+
+        composable(route = Screens.SignUp.route){
+
+          //  SignUpScreen(navController = navController,signUpScreenViewModel = SignUpScreenViewModel)
+        }
+
+
 
     }
 }

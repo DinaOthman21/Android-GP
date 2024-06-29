@@ -28,6 +28,11 @@
     <string name="account_settings">Account Settings</string>
     <string name="log_out">log out</string>
     <string name="change_language">change language</string>
+    <string name="create_new_account">create new account</string>
+    <string name="enter_the_required_data_below">enter the required data below</string>
+    <string name="full_name">full name</string>
+    <string name="user_name">user name</string>
+
 
 
 

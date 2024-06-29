@@ -166,3 +166,42 @@ fun PasswordEditText(
     }
 
 }
+
+
+
+@Composable
+fun UserNameEditText(
+    userName:String ,
+    modifier: Modifier = Modifier,
+    editTextHeight: Int = 60,
+    isUserNameError:Boolean ,
+
+    userNameErrorMessage:String,
+    onValueChange:(String) -> Unit) {
+    Column {
+        TextField(
+            placeholder = { Text(text = stringResource(R.string.user_name), fontSize = 16.sp,color = MaterialTheme.colorScheme.secondary) },
+            value = userName,
+            onValueChange = {
+                onValueChange(it)
+            },
+            colors = textFieldColors(),
+            shape = RoundedCornerShape(12.dp),
+            modifier = modifier
+                .height(editTextHeight.dp)
+                .fillMaxWidth()
+                .shadow(elevation = 24.dp),
+            singleLine = true,
+            isError = isUserNameError,
+        )
+        Row {
+            Text(
+                userNameErrorMessage, style = MaterialTheme.typography.bodyMedium, modifier = Modifier
+                    .padding(top = 3.dp, start = 25.dp), color = Color.Red
+            )
+            Spacer(modifier = Modifier.weight(1f))
+
+        }
+    }
+}
+
