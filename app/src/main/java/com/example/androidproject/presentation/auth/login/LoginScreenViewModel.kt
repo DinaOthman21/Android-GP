@@ -77,7 +77,15 @@ class LoginScreenViewModel :ViewModel() {
 
         }
 
-        if (_state.password.isNotEmpty() && _state.email.isNotEmpty() && isValidEmail(_state.email)){
+        if (!isValidPassword(_state.password)){
+            _state=_state.copy(
+                isPasswordError = true,
+                errorMessagePassword = context.getString(R.string.password_length_error_message)
+            )
+
+        }
+
+        if (_state.password.isNotEmpty() && _state.email.isNotEmpty() && isValidEmail(_state.email) && isValidPassword(_state.password)){
 
             // save token as example to save user if user make Remember me true
             navController.navigate(Screens.Home.route){
@@ -98,6 +106,10 @@ class LoginScreenViewModel :ViewModel() {
 
         // Check if the provided email matches the pattern
         return email.matches(Regex(pattern))
+    }
+
+    private fun isValidPassword(password: String): Boolean {
+        return password.length >= 8
     }
 
 

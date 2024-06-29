@@ -14,7 +14,7 @@ import com.example.androidproject.presentation.navigation.AppNavigation
 
 class HomeActivity : ComponentActivity(){
     private val loginViewModel by viewModels<LoginScreenViewModel>()
-   // private val loginViewModel by viewModels<LoginScreenViewModel>()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +25,7 @@ class HomeActivity : ComponentActivity(){
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    AppNavigation(loginViewModel = loginViewModel)
+                    AppNavigation(loginViewModel = loginViewModel )
                 }
 
             }

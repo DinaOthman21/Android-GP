@@ -32,6 +32,9 @@
     <string name="enter_the_required_data_below">enter the required data below</string>
     <string name="full_name">full name</string>
     <string name="user_name">user name</string>
+    <string name="confirm_password">confirm password</string>
+    <string name="next">next</string>
+    <string name="password_length_error_message">password_length_error_message</string>
 
 
 

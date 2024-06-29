@@ -1,5 +1,6 @@
 package com.example.androidproject.presentation.navigation
 
+
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -14,7 +15,7 @@ import com.example.androidproject.presentation.homeScreens.bottomNavigation.home
 @Composable
 fun AppNavigation(
     loginViewModel: LoginScreenViewModel,
-   // SignUpScreenViewModel : SignUpScreenViewModel
+   // signUpScreenViewModel : SignUpScreenViewModel
     )
 {
     val navController = rememberNavController()
@@ -41,7 +42,7 @@ fun AppNavigation(
 
         composable(route = Screens.SignUp.route){
 
-          //  SignUpScreen(navController = navController,signUpScreenViewModel = SignUpScreenViewModel)
+         //  SignUpScreen(navController = navController,signUpScreenViewModel = signUpScreenViewModel)
         }
 
 
