@@ -1,4 +1,4 @@
-package com.example.androidproject.presentation.homeScreens.bottomNavigation.prediction
+package com.example.androidproject.presentation.homeScreens.bottomNavigation.calculator
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,12 +14,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun PredictionScreen(){
+fun CalculatorScreen(){
     Box(modifier = Modifier.fillMaxSize()){
         Column(modifier=Modifier.fillMaxSize().align(Alignment.Center),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(text=" Prediction", fontSize = 18.sp, style = TextStyle(color = Color.Blue))
+            Text(text="Calculator", fontSize = 18.sp, style = TextStyle(color = Color.Blue))
 
         }
     }
@@ -27,6 +27,6 @@ fun PredictionScreen(){
 
 @Preview(showBackground = true)
 @Composable
-fun PredictionPreview() {
-    PredictionScreen()
+fun CalculatorPreview() {
+    CalculatorScreen()
 }

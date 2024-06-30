@@ -34,7 +34,7 @@
     <string name="user_name">user name</string>
     <string name="confirm_password">confirm password</string>
     <string name="next">next</string>
-    <string name="password_length_error_message">password_length_error_message</string>
+    <string name="password_length_error_message">password length must be > 8</string>
 
 
 

@@ -1,6 +1,8 @@
 package com.example.androidproject.presentation.homeScreens
 
 
+
+
 import com.example.androidproject.R
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Box
@@ -43,33 +45,33 @@ fun BottomAppBar(
             tonalElevation = 10.dp
         ) {
             items.forEachIndexed { index, item ->
-                    NavigationBarItem(
-                        selected = index == selectedItem,
-                        onClick = { onItemClick(index) },
-                        icon = {
-                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                Icon(
-                                    painter = painterResource(id = item.icon),
-                                    contentDescription = null,
-                                    modifier = Modifier.size(25.dp),
+                NavigationBarItem(
+                    selected = index == selectedItem,
+                    onClick = { onItemClick(index) },
+                    icon = {
+                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                            Icon(
+                                painter = painterResource(id = item.icon),
+                                contentDescription = null,
+                                modifier = Modifier.size(25.dp),
+                            )
+                            Spacer(modifier = Modifier.height(6.dp))
+                            Text(text = item.text,
+                                style = MaterialTheme.typography.labelSmall.copy(
+                                    fontSize = 14.sp,
+                                    fontWeight = FontWeight.Bold
                                 )
-                                Spacer(modifier = Modifier.height(6.dp))
-                                Text(text = item.text,
-                                    style = MaterialTheme.typography.labelSmall.copy(
-                                        fontSize = 14.sp,
-                                        fontWeight = FontWeight.Bold
-                                    )
-                                )
-                            }
-                        },
-                        colors = NavigationBarItemDefaults.colors(
-                            selectedIconColor = MaterialTheme.colorScheme.onPrimary,
-                            selectedTextColor = MaterialTheme.colorScheme.onPrimary,
-                            unselectedIconColor = colorResource(id = R.color.white),
-                            unselectedTextColor = colorResource(id = R.color.white),
-                            indicatorColor = MaterialTheme.colorScheme.background
-                        ),
-                    )
+                            )
+                        }
+                    },
+                    colors = NavigationBarItemDefaults.colors(
+                        selectedIconColor = MaterialTheme.colorScheme.onPrimary,
+                        selectedTextColor = MaterialTheme.colorScheme.onPrimary,
+                        unselectedIconColor = colorResource(id = R.color.white),
+                        unselectedTextColor = colorResource(id = R.color.white),
+                        indicatorColor = MaterialTheme.colorScheme.background
+                    ),
+                )
             }
         }
 

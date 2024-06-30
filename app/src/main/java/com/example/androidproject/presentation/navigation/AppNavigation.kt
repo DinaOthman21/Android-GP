@@ -8,8 +8,11 @@ import androidx.navigation.compose.rememberNavController
 import com.example.androidproject.data.remote.dto.Post
 import com.example.androidproject.presentation.auth.login.LoginScreen
 import com.example.androidproject.presentation.auth.login.LoginScreenViewModel
+import com.example.androidproject.presentation.homeScreens.bottomNavigation.calculator.CalculatorScreen
 import com.example.androidproject.presentation.homeScreens.bottomNavigation.home.HomeScreen
 import com.example.androidproject.presentation.homeScreens.bottomNavigation.home.PostDetails
+import com.example.androidproject.presentation.homeScreens.bottomNavigation.medicine.MedicineScreen
+import com.example.androidproject.presentation.homeScreens.bottomNavigation.prediction.PredictionScreen
 
 
 @Composable
@@ -20,6 +23,7 @@ fun AppNavigation(
 {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screens.Login.route){
+
         composable(route = Screens.Login.route){
             LoginScreen(loginViewModel = loginViewModel,navController = navController)
         }
@@ -44,6 +48,18 @@ fun AppNavigation(
 
          //  SignUpScreen(navController = navController,signUpScreenViewModel = signUpScreenViewModel)
         }
+
+        composable(route = Screens.Prediction.route){
+          PredictionScreen()
+        }
+
+        composable(route = Screens.Medicine.route){
+            MedicineScreen()
+        }
+        composable(route = Screens.Calculator.route){
+            CalculatorScreen()
+        }
+
 
 
 

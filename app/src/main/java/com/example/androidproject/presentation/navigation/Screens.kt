@@ -5,6 +5,9 @@ sealed class Screens(val route:String){
     data object Home : Screens(route = "home")
     data object PostDetails : Screens(route = "postDetails")
     data object SignUp : Screens(route = "signUp")
+    data object Prediction : Screens(route = "prediction")
+    data object Medicine : Screens(route = "medicine")
+    data object Calculator : Screens(route = "calculator")
 
 
 
