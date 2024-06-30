@@ -1,10 +1,9 @@
-package com.example.androidproject.presentation.homeScreens
+package com.example.androidproject.presentation.homeScreens.BottomAppBar
 
 
 
 
 import com.example.androidproject.R
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -32,7 +31,7 @@ import com.example.androidproject.ui.theme.AndroidProjectTheme
 
 @Composable
 fun BottomAppBar(
-    items: List<BottomNavigationItem>,
+    items: List<BottomBarItem>,
     selectedItem: Int,
     onItemClick: (Int) -> Unit,
 ) {
@@ -78,20 +77,16 @@ fun BottomAppBar(
     }
 }
 
-data class BottomNavigationItem(
-    @DrawableRes val icon: Int,
-    val text: String
-)
 
 
 @Preview
 @Composable
 fun BottomAppBarPreview() {
     val items = listOf(
-        BottomNavigationItem(icon = R.drawable.home, text = "Home"),
-        BottomNavigationItem(icon = R.drawable.prediction, text = "Prediction"),
-        BottomNavigationItem(icon = R.drawable.medicine, text = "Drug"),
-        BottomNavigationItem(icon = R.drawable.calculator, text = "Calculator")
+        BottomBarItem.Home,
+        BottomBarItem.Prediction,
+        BottomBarItem.Medicine,
+        BottomBarItem.Calculator
     )
 
     AndroidProjectTheme(dynamicColor = false) {

@@ -161,8 +161,8 @@ import com.example.androidproject.presentation.components.HorizontalView
 import com.example.androidproject.presentation.components.TextWithBoldUnderLine
 import com.example.androidproject.presentation.components.VerticalAvoidCard
 import com.example.androidproject.presentation.components.posts
-import com.example.androidproject.presentation.homeScreens.BottomAppBar
-import com.example.androidproject.presentation.homeScreens.BottomNavigationItem
+import com.example.androidproject.presentation.homeScreens.BottomAppBar.BottomAppBar
+import com.example.androidproject.presentation.homeScreens.BottomAppBar.BottomBarItem
 import com.example.androidproject.presentation.navigation.Screens
 import com.example.androidproject.presentation.homeScreens.TopAppBar
 
@@ -171,11 +171,11 @@ import com.example.androidproject.presentation.homeScreens.TopAppBar
 fun HomeScreen(navController: NavHostController) {
     var selectedItem by remember { mutableStateOf(0) }
 
-    val items= listOf(
-        BottomNavigationItem(icon = R.drawable.home , text = "Home") ,
-        BottomNavigationItem(icon = R.drawable.prediction, text = "Prediction"),
-        BottomNavigationItem(icon = R.drawable.medicine, text = "Drug"),
-        BottomNavigationItem(icon = R.drawable.calculator, text = "Calculator")
+    val items = listOf(
+        BottomBarItem.Home,
+        BottomBarItem.Prediction,
+        BottomBarItem.Medicine,
+        BottomBarItem.Calculator
     )
 
 
@@ -238,7 +238,6 @@ fun HomeScreen(navController: NavHostController) {
         onItemClick = { index ->
             selectedItem = index
             when (index) {
-                0 -> navController.navigate(Screens.Home.route)
                 1 -> navController.navigate(Screens.Prediction.route)
                 2 -> navController.navigate(Screens.Medicine.route)
                 3 -> navController.navigate(Screens.Calculator.route)
