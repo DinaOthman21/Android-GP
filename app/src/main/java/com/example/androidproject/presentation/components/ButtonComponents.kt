@@ -1,5 +1,6 @@
 package com.example.androidproject.presentation.components
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -133,4 +134,42 @@ fun CircleIconBackground(
             },
         tint = iconColor
     )
+}
+
+
+
+@Composable
+fun ButtonClickOnBorder(
+    buttonText:String,
+    modifier: Modifier = Modifier,
+    buttonHeight: Int = 60,
+    paddingValueTop:Int ,
+    paddingValueBottom:Int ,
+    buttonColor:Color,
+    textColor:Color,
+    onButtonClick:() -> Unit ) {
+    Button (
+        colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent,),
+        enabled = true,
+        onClick = {onButtonClick()},
+        modifier = modifier
+            .padding(top = paddingValueTop.dp)
+            .padding(bottom = paddingValueBottom.dp)
+            .height(buttonHeight.dp)
+            .fillMaxWidth(1f)
+            .shadow(elevation = 24.dp)
+            .clip(RoundedCornerShape(16.dp))
+            .border(2.dp, brush = animatedShimmerColor(
+                shimmerColors = listOf(
+                    BackgroundDark.copy(alpha = 0.6f),
+                    ComponentDark.copy(alpha = 0.5f),
+                    CommonComponent.copy(alpha = 0.8f),
+                )
+            ), shape = RoundedCornerShape(16.dp))
+            .background(buttonColor),
+
+
+        ){
+        Text(text = buttonText, fontSize = 18.sp, style = TextStyle(color = textColor))
+    }
 }

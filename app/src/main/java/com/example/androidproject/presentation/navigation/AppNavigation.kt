@@ -8,6 +8,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.androidproject.data.remote.dto.Post
 import com.example.androidproject.presentation.auth.login.LoginScreen
 import com.example.androidproject.presentation.auth.login.LoginScreenViewModel
+import com.example.androidproject.presentation.auth.signUp.SignUpScreen
+import com.example.androidproject.presentation.auth.signUp.SignUpScreenViewModel
 import com.example.androidproject.presentation.homeScreens.bottomNavigation.calculator.CalculatorScreen
 import com.example.androidproject.presentation.homeScreens.bottomNavigation.home.HomeScreen
 import com.example.androidproject.presentation.homeScreens.bottomNavigation.home.PostDetails
@@ -19,7 +21,7 @@ import com.example.androidproject.presentation.homeScreens.topNavigation.chat.Ch
 @Composable
 fun AppNavigation(
     loginViewModel: LoginScreenViewModel,
-   // signUpScreenViewModel : SignUpScreenViewModel
+    signUpScreenViewModel : SignUpScreenViewModel
     )
 {
     val navController = rememberNavController()
@@ -46,8 +48,7 @@ fun AppNavigation(
         }
 
         composable(route = Screens.SignUp.route){
-
-         //  SignUpScreen(navController = navController,signUpScreenViewModel = signUpScreenViewModel)
+          SignUpScreen(navController = navController,signUpScreenViewModel = signUpScreenViewModel)
         }
 
         composable(route = Screens.Prediction.route){
@@ -60,8 +61,8 @@ fun AppNavigation(
         composable(route = Screens.Calculator.route){
             CalculatorScreen()
         }
-        composable(route = Screens.Calculator.route){
-            ChatScreen()
+        composable(route = Screens.Chat.route){
+            ChatScreen(navController = navController)
         }
 
 

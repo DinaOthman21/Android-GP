@@ -15,5 +15,7 @@ data class LoginScreenState(
 
 
     val checkBoxState:Boolean = false,
+    val errorMessage:String = "",
+
 
     )

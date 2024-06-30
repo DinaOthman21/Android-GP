@@ -12,9 +12,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun ChatScreen(){
+fun ChatScreen(navController: NavHostController){
     Box(modifier = Modifier.fillMaxSize()){
         Column(modifier=Modifier.fillMaxSize().align(Alignment.Center),
             verticalArrangement = Arrangement.Center,
@@ -28,5 +30,6 @@ fun ChatScreen(){
 @Preview(showBackground = true)
 @Composable
 fun ChatPreview() {
-    ChatScreen()
+    val navController = rememberNavController()
+    ChatScreen(navController)
 }

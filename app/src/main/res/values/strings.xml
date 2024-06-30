@@ -35,7 +35,10 @@
     <string name="confirm_password">confirm password</string>
     <string name="next">next</string>
     <string name="password_length_error_message">password length must be > 8</string>
-    <string name="press_again_to_exit">press again to exit</string>
+    <string name="please_enter_your_name">please enter your name</string>
+    <string name="please_enter_confirm_password">please enter confirm password</string>
+    <string name="confirm_password_not_match_password">confirm password not match password</string>
+    <string name="sign_up">sign up</string>
 
 
 

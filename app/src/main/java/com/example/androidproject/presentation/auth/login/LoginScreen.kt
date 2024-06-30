@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -21,10 +22,12 @@ import androidx.navigation.NavHostController
 import com.example.androidproject.R
 import com.example.androidproject.presentation.components.AppNameWithHiatusFont
 import com.example.androidproject.presentation.components.ButtonClickOn
+import com.example.androidproject.presentation.components.ButtonClickOnBorder
 import com.example.androidproject.presentation.components.CheckboxWithName
 import com.example.androidproject.presentation.components.EmailEditText
 import com.example.androidproject.presentation.components.PasswordEditText
 import com.example.androidproject.presentation.components.TextLabel
+import com.example.androidproject.presentation.navigation.Screens
 
 @Composable
 fun LoginScreen(
@@ -102,6 +105,33 @@ fun LoginScreen(
             // on login click
             loginViewModel.onLoginClick(context,navController)
         }
+
+        Row {
+            Text(
+                state.errorMessage, style = MaterialTheme.typography.bodyMedium, modifier = Modifier
+                    .padding(top = 3.dp, start = 25.dp), color = Color.Red
+            )
+            Spacer(modifier = Modifier.weight(1f))
+
+        }
+
+        ButtonClickOnBorder(
+            buttonText =  stringResource(R.string.sign_up),
+            paddingValueTop = 10,
+            paddingValueBottom = 40,
+            buttonColor = MaterialTheme.colorScheme.onBackground,
+            textColor = MaterialTheme.colorScheme.onSurface
+
+        ){
+            // on sign up text click
+            navController.navigate(Screens.SignUp.route)
+        }
+
+
+
+
+
+
 
     }
 }

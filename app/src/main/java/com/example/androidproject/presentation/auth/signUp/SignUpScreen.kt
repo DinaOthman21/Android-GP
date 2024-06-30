@@ -13,7 +13,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.androidproject.R
 import com.example.androidproject.presentation.components.BackIcon
@@ -25,7 +25,7 @@ import com.example.androidproject.presentation.components.UserNameEditText
 
 @Composable
 fun SignUpScreen(
-    navController: NavController,
+    navController: NavHostController,
     signUpScreenViewModel: SignUpScreenViewModel
 )
 {
@@ -66,7 +66,9 @@ fun SignUpScreen(
             userName = state.userName,
             isUserNameError = state.isErrorUserName,
             userNameErrorMessage = state.userNameErrorMessage,
-            onValueChange = {}
+            onValueChange = { it->
+                signUpScreenViewModel.onUserNameChange(it)
+            }
         )
         TextLabel(
             text = stringResource(id = R.string.email),
@@ -78,7 +80,9 @@ fun SignUpScreen(
             email = state.email,
             isErrorEmail = state.isErrorEmail,
             emailErrorMessage = state.emailErrorMessage,
-            onValueChange = {}
+            onValueChange = { it->
+                signUpScreenViewModel.onEmailChange(it)
+            }
         )
 
         TextLabel(
@@ -93,7 +97,9 @@ fun SignUpScreen(
             isErrorPassword = state.isErrorPassword,
             passwordErrorMessage = state.passwordErrorMessage,
             showPassword = state.showPassword,
-            onValueChange = {}
+            onValueChange = {it->
+                signUpScreenViewModel.onPasswordChange(it)
+            }
         ) {}
 
         TextLabel(
@@ -108,14 +114,18 @@ fun SignUpScreen(
             isErrorPassword = state.isErrorConfirmPassword,
             passwordErrorMessage = state.confirmPasswordErrorMessage,
             showPassword = state.showConfirmPassword,
-            onValueChange = {}
+            onValueChange = { it->
+                signUpScreenViewModel.onConfirmPasswordChange(it)
+            }
         ) {}
 
         Spacer(modifier = Modifier.weight(1f))
 
         ButtonClickOn(
             buttonText = stringResource(R.string.next),
-            paddingValue = 0) {}
+            paddingValue = 0) {
+            signUpScreenViewModel.onNextToSecondScreen(navController,context)
+        }
 
 
     }
