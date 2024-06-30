@@ -183,12 +183,8 @@ fun HomeScreen(navController: NavHostController) {
     Column {
 
         TopAppBar(
-            onProfileClick = {
-                // Navigate to profile screen or perform profile action
-                //navController.navigate(Screens.Profile.route)
-            },
+            onProfileClick = {},
             onChatClick = {
-                // Navigate to chat screen or perform chat action
                 // navController.navigate(Screens.Chat.route)
             }
         )

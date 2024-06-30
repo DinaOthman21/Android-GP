@@ -13,6 +13,7 @@ import com.example.androidproject.presentation.homeScreens.bottomNavigation.home
 import com.example.androidproject.presentation.homeScreens.bottomNavigation.home.PostDetails
 import com.example.androidproject.presentation.homeScreens.bottomNavigation.medicine.MedicineScreen
 import com.example.androidproject.presentation.homeScreens.bottomNavigation.prediction.PredictionScreen
+import com.example.androidproject.presentation.homeScreens.topNavigation.chat.ChatScreen
 
 
 @Composable
@@ -59,6 +60,10 @@ fun AppNavigation(
         composable(route = Screens.Calculator.route){
             CalculatorScreen()
         }
+        composable(route = Screens.Calculator.route){
+            ChatScreen()
+        }
+
 
 
 
