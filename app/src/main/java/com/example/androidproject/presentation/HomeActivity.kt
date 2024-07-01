@@ -10,12 +10,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.example.androidproject.presentation.auth.signUp.InformationScreenViewModel
 import com.example.androidproject.presentation.auth.signUp.SignUpScreenViewModel
 import com.example.androidproject.presentation.navigation.AppNavigation
 
 class HomeActivity : ComponentActivity(){
     private val loginViewModel by viewModels<LoginScreenViewModel>()
     private val signUpScreenViewModel by viewModels<SignUpScreenViewModel>()
+    private val informationScreenViewModel by viewModels<InformationScreenViewModel>()
 
 
 
@@ -28,7 +30,9 @@ class HomeActivity : ComponentActivity(){
                     color = MaterialTheme.colorScheme.background
                 ) {
                     AppNavigation(loginViewModel = loginViewModel ,
-                        signUpScreenViewModel = signUpScreenViewModel,)
+                        signUpScreenViewModel = signUpScreenViewModel,
+                        informationScreenViewModel= informationScreenViewModel
+                        )
                 }
 
             }

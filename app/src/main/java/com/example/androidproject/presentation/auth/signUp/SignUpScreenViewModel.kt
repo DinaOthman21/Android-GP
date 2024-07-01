@@ -10,6 +10,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import com.example.androidproject.R
+import com.example.androidproject.presentation.navigation.Screens
 
 
 class SignUpScreenViewModel: ViewModel()
@@ -22,6 +23,22 @@ class SignUpScreenViewModel: ViewModel()
 
     val state: State<SignUpScreenState>
         get() = derivedStateOf { _state }
+
+    fun onIconShowPassword(){
+        val newShowPassword = _state.showPassword.not()
+        _state = _state.copy(
+            showPassword = newShowPassword
+        )
+    }
+
+
+    fun onIconShowConfirmPassword(){
+        val newShowConfirmPassword = _state.showConfirmPassword.not()
+        _state = _state.copy(
+            showConfirmPassword = newShowConfirmPassword
+        )
+    }
+
 
     fun onUserNameChange(userName:String){
         _state = _state.copy(
@@ -125,7 +142,7 @@ class SignUpScreenViewModel: ViewModel()
             _state.confirmPassword == _state.password &&
             isValidPassword(_state.password)
         ){
-           // navController.navigate(Screens.UserInfo.route)
+            navController.navigate(Screens.Information.route)
         }
 
     }

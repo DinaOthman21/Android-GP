@@ -39,6 +39,22 @@
     <string name="please_enter_confirm_password">please enter confirm password</string>
     <string name="confirm_password_not_match_password">confirm password not match password</string>
     <string name="sign_up">sign up</string>
+    <string name="please_enter_a_valid_height">please enter a valid height</string>
+    <string name="please_enter_a_valid_weight">please enter a valid weight</string>
+    <string name="please_enter_a_valid_age">please enter a valid age</string>
+    <string name="please_enter_your_height">please enter your height</string>
+    <string name="please_enter_your_weight">please enter your weight</string>
+    <string name="please_enter_your_age">please enter your age</string>
+    <string name="please_select_your_gender">please select your gender</string>
+    <string name="height">height</string>
+    <string name="weight">weight</string>
+    <string name="age">age</string>
+    <string name="gender">gender</string>
+    <string name="male">male</string>
+    <string name="female">female</string>
+    <string name="enter_your_height">enter your height</string>
+    <string name="enter_your_weight">enter your weight</string>
+    <string name="enter_your_age">enter your age</string>
 
 
 

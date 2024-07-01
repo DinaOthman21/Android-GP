@@ -205,3 +205,42 @@ fun UserNameEditText(
     }
 }
 
+
+
+@Composable
+fun NumberEditText(
+    number:String ,
+    modifier: Modifier = Modifier,
+    placeholderID: Int,
+    editTextHeight: Int = 60,
+    isNumberError:Boolean ,
+    numberErrorMessage:String,
+    onValueChange:(String) -> Unit) {
+    Column {
+        TextField(
+            placeholder = { Text(text = stringResource(placeholderID), fontSize = 16.sp,color = MaterialTheme.colorScheme.secondary) },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            value = number,
+            onValueChange = {
+                onValueChange(it)
+            },
+            colors = textFieldColors(),
+            shape = RoundedCornerShape(12.dp),
+            modifier = modifier
+                .height(editTextHeight.dp)
+                .fillMaxWidth()
+                .shadow(elevation = 24.dp),
+            singleLine = true,
+            isError = isNumberError,
+        )
+        Row {
+            Text(
+                numberErrorMessage, style = MaterialTheme.typography.bodyMedium, modifier = Modifier
+                    .padding(top = 3.dp, start = 25.dp), color = Color.Red
+            )
+            Spacer(modifier = Modifier.weight(1f))
+
+        }
+    }
+}
+

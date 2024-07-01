@@ -100,7 +100,9 @@ fun SignUpScreen(
             onValueChange = {it->
                 signUpScreenViewModel.onPasswordChange(it)
             }
-        ) {}
+        ) {
+            signUpScreenViewModel.onIconShowPassword()
+        }
 
         TextLabel(
             text = stringResource(R.string.confirm_password),
@@ -117,7 +119,9 @@ fun SignUpScreen(
             onValueChange = { it->
                 signUpScreenViewModel.onConfirmPasswordChange(it)
             }
-        ) {}
+        ) {
+            signUpScreenViewModel.onIconShowConfirmPassword()
+        }
 
         Spacer(modifier = Modifier.weight(1f))
 

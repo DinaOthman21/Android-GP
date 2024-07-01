@@ -8,6 +8,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.androidproject.data.remote.dto.Post
 import com.example.androidproject.presentation.auth.login.LoginScreen
 import com.example.androidproject.presentation.auth.login.LoginScreenViewModel
+import com.example.androidproject.presentation.auth.signUp.InformationScreen
+import com.example.androidproject.presentation.auth.signUp.InformationScreenViewModel
 import com.example.androidproject.presentation.auth.signUp.SignUpScreen
 import com.example.androidproject.presentation.auth.signUp.SignUpScreenViewModel
 import com.example.androidproject.presentation.homeScreens.bottomNavigation.calculator.CalculatorScreen
@@ -21,7 +23,8 @@ import com.example.androidproject.presentation.homeScreens.topNavigation.chat.Ch
 @Composable
 fun AppNavigation(
     loginViewModel: LoginScreenViewModel,
-    signUpScreenViewModel : SignUpScreenViewModel
+    signUpScreenViewModel : SignUpScreenViewModel,
+    informationScreenViewModel: InformationScreenViewModel
     )
 {
     val navController = rememberNavController()
@@ -63,6 +66,9 @@ fun AppNavigation(
         }
         composable(route = Screens.Chat.route){
             ChatScreen(navController = navController)
+        }
+        composable(route = Screens.Information.route){
+            InformationScreen(navController = navController, informationScreenViewModel = informationScreenViewModel)
         }
 
 
