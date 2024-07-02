@@ -18,13 +18,16 @@ import com.example.androidproject.presentation.homeScreens.bottomNavigation.home
 import com.example.androidproject.presentation.homeScreens.bottomNavigation.medicine.MedicineScreen
 import com.example.androidproject.presentation.homeScreens.bottomNavigation.prediction.PredictionScreen
 import com.example.androidproject.presentation.homeScreens.topNavigation.chat.ChatScreen
+import com.example.androidproject.presentation.homeScreens.topNavigation.profile.NavigationDrawerUI
+import com.example.androidproject.presentation.homeScreens.topNavigation.profile.ProfileViewModel
 
 
 @Composable
 fun AppNavigation(
     loginViewModel: LoginScreenViewModel,
     signUpScreenViewModel : SignUpScreenViewModel,
-    informationScreenViewModel: InformationScreenViewModel
+    informationScreenViewModel: InformationScreenViewModel,
+    profileViewModel : ProfileViewModel
     )
 {
     val navController = rememberNavController()
@@ -55,20 +58,23 @@ fun AppNavigation(
         }
 
         composable(route = Screens.Prediction.route){
-          PredictionScreen()
+          PredictionScreen(navController = navController)
         }
 
         composable(route = Screens.Medicine.route){
-            MedicineScreen()
+            MedicineScreen(navController = navController)
         }
         composable(route = Screens.Calculator.route){
-            CalculatorScreen()
+            CalculatorScreen(navController = navController)
         }
         composable(route = Screens.Chat.route){
             ChatScreen(navController = navController)
         }
         composable(route = Screens.Information.route){
             InformationScreen(navController = navController, informationScreenViewModel = informationScreenViewModel)
+        }
+        composable(route = Screens.Profile.route){
+            NavigationDrawerUI(navController = navController,profileViewModel=profileViewModel)
         }
 
 
@@ -77,3 +83,6 @@ fun AppNavigation(
 
     }
 }
+
+
+

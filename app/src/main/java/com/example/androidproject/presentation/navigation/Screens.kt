@@ -10,6 +10,7 @@ sealed class Screens(val route:String){
     data object Calculator : Screens(route = "calculator")
     data object Chat : Screens(route = "chat")
     data object Information : Screens(route = "information")
+    data object Profile : Screens(route = "profile")
 
 
 

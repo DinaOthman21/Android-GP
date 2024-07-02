@@ -100,4 +100,7 @@ dependencies {
     kapt ("com.google.dagger:hilt-android-compiler:2.46")
 
 
+    implementation ("androidx.compose.material:material:1.3.0")
+
+
 }
