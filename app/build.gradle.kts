@@ -102,5 +102,7 @@ dependencies {
 
     implementation ("androidx.compose.material:material:1.3.0")
 
+    implementation("com.google.ai.client.generativeai:generativeai:0.7.0")
+
 
 }
